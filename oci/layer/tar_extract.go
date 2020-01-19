@@ -251,6 +251,27 @@ func (te *TarExtractor) isDirlink(root string, path string) (bool, error) {
 	return targetInfo.IsDir(), nil
 }
 
+func strTypeFlag(typeFlag byte) string {
+	prefix := "unknown"
+	switch typeFlag {
+	case tar.TypeReg, tar.TypeRegA:
+		prefix = "file"
+	case tar.TypeDir:
+		prefix = "directory"
+	case tar.TypeLink:
+		prefix = "hardlink"
+	case tar.TypeSymlink:
+		prefix = "symlink"
+	case tar.TypeChar:
+		prefix = "char"
+	case tar.TypeBlock:
+		prefix = "block"
+	case tar.TypeFifo:
+		prefix = "fifo"
+	}
+	return fmt.Sprintf("%s[0x%.2x]", prefix, typeFlag)
+}
+
 // UnpackEntry extracts the given tar.Header to the provided root, ensuring
 // that the layer state is consistent with the layer state that produced the
 // tar archive being iterated over. This does handle whiteouts, so a tar.Header
@@ -263,7 +284,7 @@ func (te *TarExtractor) UnpackEntry(root string, hdr *tar.Header, r io.Reader) (
 	log.WithFields(log.Fields{
 		"root": root,
 		"path": hdr.Name,
-		"type": hdr.Typeflag,
+		"type": strTypeFlag(hdr.Typeflag),
 	}).Debugf("unpacking entry")
 
 	// Get directory and filename, but we have to safely get the directory

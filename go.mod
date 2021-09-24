@@ -9,7 +9,7 @@ require (
 	github.com/cyphar/filepath-securejoin v0.2.3
 	github.com/docker/go-units v0.4.0
 	github.com/golang/protobuf v1.5.2
-	github.com/klauspost/compress v1.11.3
+	github.com/klauspost/compress v1.13.6
 	github.com/klauspost/pgzip v1.2.5
 	github.com/kr/text v0.2.0 // indirect
 	github.com/mattn/go-colorable v0.1.6 // indirect

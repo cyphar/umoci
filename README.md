@@ -196,7 +196,7 @@ VERSION:
    0.5.0
 
 AUTHOR:
-   Aleksa Sarai <asarai@suse.com>
+   Aleksa Sarai <cyphar@cyphar.com>
 
 COMMANDS:
    raw      advanced internal image tooling

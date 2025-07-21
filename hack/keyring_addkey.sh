@@ -1,6 +1,7 @@
 #!/bin/bash
 # SPDX-License-Identifier: Apache-2.0
 # Copyright (C) 2023-2025 SUSE LLC.
+# Copyright (C) 2023-2025 Aleksa Sarai <cyphar@cyphar.com>
 # Copyright (C) 2023 Open Containers Authors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
